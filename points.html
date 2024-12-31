@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolv Leaderboard</title>
+    <style>
+        /* General Body Style */
+        body {
+            background-color: #222;
+            color: #f0f0f0;  /* Light gray for font color */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1, h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #00ff00;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Animation for Fade In */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Style for Result Container */
+        .result-container {
+            background-color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            display: inline-block;
+            max-width: 600px; /* Ensuring wallet address fits */
+            width: 100%;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .address, .rank, .points {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #f0f0f0; /* Unified font color */
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Highlight Rank with a Color */
+        .rank {
+            color: #ff4500;
+            font-size: 1.7em;
+            font-weight: bold;
+        }
+
+        .points {
+            color: #00f; /* Keeping Points in Blue */
+            font-size: 2em;
+        }
+
+        .address {
+            color: #ff00ff;
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        /* Footer Styles */
+        .footer {
+            font-size: 1em;
+            margin-top: 30px;
+            color: #ff00ff;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .footer a {
+            color: #ff00ff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Update Message */
+        .update-message {
+            font-size: 1em;
+            margin-top: 20px;
+            color: #0ff;
+            font-style: italic;
+        }
+
+        /* Animation for Fun (Hover Effects) */
+        .result-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .address:hover {
+            color: #ff0;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wallet Address Points & Rank</h1>
+    <div class="result-container">
+        <p class="address">Wallet Address: {{ address }}</p>
+        <p class="rank">Rank: {{ rank }}</p>
+        <p class="points">Points: {{ points }}</p>
+    </div>
+    <div class="update-message">
+        <p>📅 Points updated daily at 10:00 AM UTC</p>
+    </div>
+    <div class="footer">
+        <p> Created with 💗 by <a href="https://x.com/Magicianafk" target="_blank">@Magicianafk</a></p>
+    </div>
+</body>
+</html>
