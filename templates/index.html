@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolv Leaderboard</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        h1, h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            display: inline-block;
+        }
+
+        input[type="text"] {
+            background-color: #444;
+            border: none;
+            color: #fff;
+            font-size: 1.2em;
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #00f;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #0ff;
+        }
+
+        .footer {
+            font-size: 1em;
+            margin-top: 30px;
+            color: #ff00ff;
+            text-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+        }
+
+        .footer a {
+            color: #ff00ff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Wallet Address</h1>
+    <form action="/search" method="post">
+        <input type="text" name="walletAddress" placeholder="Enter Wallet Address" required>
+        <br>
+        <button type="submit">Search</button>
+    </form>
+    <div class="footer">
+        <p> Created with 💗 by <a href="https://x.com/Magicianafk" target="_blank">@Magicianafk</a></p>
+    </div>
+</body>
+</html>
