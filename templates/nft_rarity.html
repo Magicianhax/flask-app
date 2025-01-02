@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Rarity Checker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        /* Back to Home Button */
+        .back-home {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #00bfff;
+            color: #121212;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .back-home:hover {
+            background-color: #39ff14;
+            transform: scale(1.05);
+        }
+
+        /* Smaller Heading */
+        h1 {
+            font-size: 1.5rem;
+            margin: 50px 0 10px;
+        }
+
+        /* Result Container */
+        .result-container {
+            margin-top: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Rank Section */
+        .rank-section {
+            background-color: rgba(0, 191, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .rank-section h2, .rank-section p {
+            margin: 5px;
+            font-size: 1rem;
+        }
+
+        /* NFT Image */
+        .nft-image {
+            margin: 10px 0;
+        }
+
+        .nft-image img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+
+        /* Traits Table */
+        table {
+            margin-top: 10px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            font-size: 0.9rem;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: rgba(0, 191, 255, 0.1);
+        }
+
+        /* Buttons Section */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .button-group a button {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            background-color: #00bfff;
+            color: #121212;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button-group a button:hover {
+            background-color: #39ff14;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>NFT Rarity Checker</h1>
+
+    <form method="post">
+        <input type="text" name="tokenId" placeholder="Enter Token ID" required>
+        <button type="submit">Check Rarity</button>
+    </form>
+
+    <div class="result-container">
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% elif metadata %}
+            <!-- Rank Section -->
+            <div class="rank-section">
+                <h2>Token ID: {{ token_id }}</h2>
+                <p><strong>Rank:</strong> {{ rank }} / {{ max_rank or 1250 }}</p>
+                <p><strong>Rarity Percentile:</strong> {{ rarity_percentage or "Not Available" }}</p>
+            </div>
+
+            <!-- NFT Image -->
+            <div class="nft-image">
+                <img src="{{ metadata.display_image_url }}" alt="NFT Image">
+            </div>
+
+            <!-- Traits Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Trait</th>
+                        <th>Value</th>
+                        <th>Rarity Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for trait, score in rarity_scores.items() %}
+                        <tr>
+                            <td>{{ trait.split(':')[0] }}</td>
+                            <td>{{ trait.split(':')[1] }}</td>
+                            <td>{{ score }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- OpenSea Button -->
+            <div class="button-group">
+                <a href="{{ metadata.opensea_url }}" target="_blank">
+                    <button>See on OpenSea</button>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        <p> Created with 💗 by <a href="https://x.com/Magicianafk" target="_blank">@Magicianafk</a></p>
+    </div>
+</body>
+</html>

@@ -3,30 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resolv Leaderboard</title>
-    <!-- Corrected the CSS path to Flask's static folder -->
+    <title>Points</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        /* Table Styling */
+        .result-table {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(30, 30, 30, 0.9); /* Slight transparency */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.5); /* Glow effect */
+            overflow: hidden;
+        }
+
+        .result-table th,
+        .result-table td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .result-table th {
+            background-color: #00bfff;
+            color: #121212;
+            font-size: 18px;
+        }
+
+        .result-table td {
+            font-size: 16px;
+        }
+
+        /* Error Message Styling */
+        .error {
+            color: #ff4c4c;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .boost-message a {
+            color: #39ff14;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boost-message a:hover {
+            color: #00bfff;
+        }
+    </style>
 </head>
 <body>
     <h1>Wallet Address Points & Rank</h1>
     <div class="result-container">
         {% if error %}
-            <!-- Display error message -->
             <p class="error">{{ error }}</p>
             {% if link %}
-                <!-- Display boost link if applicable -->
                 <p class="boost-message">
                     <a href="{{ link }}" target="_blank">Join now and Get a 10% Boost!</a>
                 </p>
             {% endif %}
         {% else %}
-            <!-- Display wallet details -->
-            <p class="address">
-                <strong>Wallet Address:</strong> 
-                <a href="https://etherscan.io/address/{{ address }}" target="_blank">{{ address }}</a>
-            </p>
-            <p class="rank"><strong>Rank:</strong> {{ rank }}</p>
-            <p class="points"><strong>Points:</strong> {{ points }}</p>
+            <table class="result-table">
+                <thead>
+                    <tr>
+                        <th>👑</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Wallet Address</strong></td>
+                        <td>{{ address }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rank</strong></td>
+                        <td>{{ rank }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Points</strong></td>
+                        <td>{{ points }}</td>
+                    </tr>
+                </tbody>
+            </table>
         {% endif %}
     </div>
     <div class="footer">
