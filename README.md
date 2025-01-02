@@ -1,5 +1,3 @@
-Here’s a complete README.md file for your GitHub repository based on what you have coded:
-
 Resolv Leaderboard
 
 A web application to check your wallet rank and points for Resolv Labs and calculate NFT rarity with traits, scores, and ranks. Built using Flask and OpenSea API.
