@@ -1,74 +1,74 @@
-Resolv Leaderboard
+# Resolv Leaderboard
 
-A web application to check your wallet rank and points for Resolv Labs and calculate NFT rarity with traits, scores, and ranks. Built using Flask and OpenSea API.
+A web application to check your **wallet rank and points** for Resolv Labs and calculate **NFT rarity** with traits, scores, and ranks. Built using Flask and OpenSea API.
 
-Features
-	•	Points Leaderboard: Search your wallet address to check your rank and points on the Resolv Leaderboard.
-	•	NFT Rarity Checker: Input your NFT Token ID to see detailed traits, rarity scores, and ranks.
-	•	Sleek User Interface: A modern and responsive UI for a seamless user experience.
-	•	Dynamic Trait Analysis: Displays NFT metadata in a professional table format with rank and OpenSea links.
+## Features
 
-Live Demo
+- **Points Leaderboard**: Search your wallet address to check your rank and points on the Resolv Leaderboard.
+- **NFT Rarity Checker**: Input your NFT Token ID to see detailed traits, rarity scores, and ranks.
+- **Sleek User Interface**: A modern and responsive UI for a seamless user experience.
+- **Dynamic Trait Analysis**: Displays NFT metadata in a professional table format with rank and OpenSea links.
 
-Try it out: https://resolv-leaderboard.onrender.com/
+## Live Demo
 
-Homepage (Points Checker)
+Try it out: [Resolv Leaderboard](https://resolv-leaderboard.onrender.com)
 
-NFT Rarity Checker
+## How to Use
 
-How to Use
+### Points Leaderboard
+1. Enter your wallet address on the homepage.
+2. Click "Check Points".
+3. View your **rank** and **points**.
 
-Points Leaderboard
-	1.	Enter your wallet address on the homepage.
-	2.	Click “Check Points”.
-	3.	View your rank and points.
+### NFT Rarity Checker
+1. Click "Check NFT Rarity" on the homepage.
+2. Enter the **NFT Token ID**.
+3. Click "Check Rarity".
+4. View the **traits**, **rarity scores**, and rank of your NFT.
 
-NFT Rarity Checker
-	1.	Click “Check NFT Rarity” on the homepage.
-	2.	Enter the NFT Token ID.
-	3.	Click “Check Rarity”.
-	4.	View the traits, rarity scores, and rank of your NFT.
+## Built With
 
-Built With
-	•	Flask - A lightweight WSGI web application framework.
-	•	OpenSea API - For fetching NFT metadata and rarity data.
-	•	HTML/CSS - For a sleek and responsive UI design.
-	•	SheetDB API - For fetching wallet points and rank data.
+- **Flask** - A lightweight WSGI web application framework.
+- **OpenSea API** - For fetching NFT metadata and rarity data.
+- **HTML/CSS** - For a sleek and responsive UI design.
+- **SheetDB API** - For fetching wallet points and rank data.
 
-Installation
-	1.	Clone the repository:
+## Installation
 
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Magicianhax/flask-app
+   cd flask-app
+   ```
 
+2. Create a virtual environment and activate it:
+   ```bash
+   python3 -m venv env
+   source env/bin/activate  # On Windows, use `env\Scripts\activate`
+   ```
 
-	2.	Create a virtual environment and activate it:
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-python3 -m venv env
-source env/bin/activate  # On Windows, use `env\Scripts\activate`
+4. Run the Flask app:
+   ```bash
+   python app.py
+   ```
 
+5. Open the app in your browser:
+   ```
+   http://127.0.0.1:5000
+   ```
 
-	3.	Install the required dependencies:
+## Environment Variables
 
-pip install -r requirements.txt
+- **OpenSea API Key**: Add your OpenSea API key in the `OPENSEA_API_KEY` variable in `app.py`.
 
+## File Structure
 
-	4.	Run the Flask app:
-
-python app.py
-
-
-	5.	Open the app in your browser:
-
-http://127.0.0.1:5000
-
-
-
-Environment Variables
-	•	OpenSea API Key: Add your OpenSea API key in the OPENSEA_API_KEY variable in app.py.
-
-File Structure
-
+```
 /static
     styles.css      # CSS for styling
 /templates
@@ -77,15 +77,17 @@ File Structure
     points.html     # Points results page
 app.py              # Main Flask app
 requirements.txt    # Python dependencies
+```
 
-Contributing
+## Contributing
 
 Contributions are welcome! Feel free to fork the repository and submit a pull request with improvements or bug fixes.
 
-License
+## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Acknowledgments
-	•	Resolv Labs for the inspiration.
-	•	OpenSea API for providing access to NFT metadata.
+## Acknowledgments
+
+- **Resolv Labs** for the inspiration.
+- **OpenSea API** for providing access to NFT metadata.
